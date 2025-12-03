@@ -32,7 +32,7 @@ Colorful and organised cheatsheet template for [Typst](https://typst.app/) that 
 To build this project via the CLI, use the command
 
 ```
-typst init @preview/boxed-sheet
+typst init @preview/boxed-sheet:0.1.1
 ```
 
 A sample project will be created with the template format.
