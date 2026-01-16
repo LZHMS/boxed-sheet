@@ -58,6 +58,7 @@ arguments:
 - `num_columns`: Number of columns (Default = 5)
 - `column_gutter`: Space between columns (Default = 4pt)
 - `numbered_units`: Numbering of units (Default = false)
+- `color_box`: Color scheme of boxes (Default = my-colors)
 
 ### boxedsheet-scaling config
 In this template we add the extral parameters to adjust the page size and keep other parameters same.

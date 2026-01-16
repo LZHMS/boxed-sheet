@@ -1,6 +1,6 @@
-#let color-box = (
+#let default-color-box = (
   rgb(190, 149, 196),
-  rgb(255, 205, 178),
+  rgb(231, 111, 81),
   rgb(102, 155, 188),
   rgb(229, 152, 155),
   rgb("6a4c93"),
@@ -9,13 +9,16 @@
   rgb("#934c5a"),
 )
 
+#let color-box-state = state("color-box", default-color-box)
+
 #let concept-block(
-  body: content,
   alignment: start,
   width: 100%,
   fill-color: white,
+  body,
 ) = context {
   let heading-count = counter(heading).at(here()).first()
+  let color-box = color-box-state.at(here())
   let current-color = color-box.at(calc.rem(heading-count - 1, color-box.len()))
 
   block(
@@ -33,6 +36,7 @@
 
 #let inline(title) = context {
   let heading-count = counter(heading).at(here()).first()
+  let color-box = color-box-state.at(here())
   let current-color = color-box.at(calc.rem(heading-count - 1, color-box.len()))
 
   box(grid(
@@ -61,7 +65,10 @@
   num-columns: 5,
   column-gutter: 4pt,
   numbered-units: false,
+  color-box: default-color-box,
   body) = {
+
+    color-box-state.update(color-box)
 
     set page(
       paper: "a4",
@@ -90,14 +97,13 @@
     set text(size: font-size)
 
     set heading(numbering: "1.1") if title-number
-             
-    show heading: it => {
+    show heading: it => context {
       let index = counter(heading).at(it.location()).first()
+      let color-box = color-box-state.at(it.location())
       let hue = color-box.at(calc.rem(index, color-box.len()))
       if title-number {
         hue = color-box.at(calc.rem(index - 1, color-box.len()))
       }
- 
       let color = hue.darken(8% * (it.depth - 1))
 
       let heading_size = font-size
@@ -156,7 +162,10 @@
   num-columns: 5,
   column-gutter: 4pt,
   numbered-units: false,
+  color-box: default-color-box,
   body) = {
+
+    color-box-state.update(color-box)
 
     set page(
       width: page-w,
@@ -186,14 +195,13 @@
     set text(size: font-size)
 
     set heading(numbering: "1.1") if title-number
-             
-    show heading: it => {
+    show heading: it => context {
       let index = counter(heading).at(it.location()).first()
+      let color-box = color-box-state.at(it.location())
       let hue = color-box.at(calc.rem(index, color-box.len()))
       if title-number {
         hue = color-box.at(calc.rem(index - 1, color-box.len()))
       }
- 
       let color = hue.darken(8% * (it.depth - 1))
 
       let heading_size = font-size

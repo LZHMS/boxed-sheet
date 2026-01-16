@@ -1,5 +1,5 @@
-#import "@preview/boxed-sheet:0.1.0": *
-//#import "../src/lib.typ": *
+//#import "@preview/boxed-sheet:0.1.0": *
+#import "../src/lib.typ": *
 
 #set text(font: (
   "Times New Roman",
@@ -10,26 +10,38 @@
 #let author = "Zhihao Li"
 #let title = "JavaScript Cheat Sheet"
 
+#let my-colors = (
+  rgb(190, 149, 196),
+  rgb("#f39f71"),
+  rgb(102, 155, 188),
+  rgb(229, 152, 155),
+  rgb("6a4c93"),
+  rgb("E0A500"),
+  rgb("#934c84"),
+  rgb("#934c5a"),
+)
+
 #show: boxedsheet.with(
-  title: title,
-  homepage: homepage,
-  authors: author,
-  write-title: true,
-  title-align: left,
-  title-number: true,
-  title-delta: 2pt,
-  scaling-size: false,
-  font-size: 5.5pt,
-  line-skip: 5.5pt,
-  x-margin: 10pt,
-  y-margin: 30pt,
-  num-columns: 4,
-  column-gutter: 2pt,
-  numbered-units: false
+  title: title,           // Title of document
+  homepage: homepage,     // Homepage of author
+  authors: author,        // Author Name
+  write-title: true,      // Writes Title on the first page
+  title-align: left,      // Position of titles in concept box
+  title-number: true,     // Whether to numbered the title (Default = true)
+  title-delta: 2pt,       // Fonts delta for title scaling (Default = 1pt)
+  scaling-size: false,    // Whether to scale the titles (Default = false)
+  font-size: 5.5pt,       // Size of font (Default = 5.5pt)
+  line-skip: 5.5pt,       // Size of line-skip (Default = 5.5pt)
+  x-margin: 10pt,         // Margin on x-axis (Default = 30pt)
+  y-margin: 30pt,         // Margin on y-axis (Default = 0pt)
+  num-columns: 4,         // Number of columns (Default = 5)
+  column-gutter: 2pt,     // Space between columns (Default = 4pt)
+  numbered-units: false,  // Numbering of units (Default = false)
+  color-box: my-colors    // Color scheme of boxes
 )
 
 = Basics
-#concept-block(body: [
+#concept-block[
   #inline("On page script")
   Embeding the `JavaScript` code in the `html` file just as follows. That ensures the browser can load the program script and run it. 
   ```js
@@ -79,11 +91,10 @@
   comment */
   // One line
   ```
-])
+]
 
 = Loops
-#concept-block(body: [
-
+#concept-block[
   #inline("For Loop")
   ```js
   for (var i = 0; i < 10; i++) {
@@ -131,10 +142,10 @@
     document.write(i + ", ");       // skips 5
   }
   ```
-])
+]
 
 = Branch
-#concept-block(body: [
+#concept-block[
   #inline("If - Else")
   ```js
   if ((age >= 14) && (age < 19)) {        // logical condition
@@ -156,10 +167,10 @@
       text = "Whatever";
   }
   ```
-])
+]
 
 = Variables
-#concept-block(body: [
+#concept-block[
   #inline("Defination")
   + `var` defines the variable in the function scope and become global variable if it's defined in the outside of function. It can be used with the value of `undefined` before defination and be alse defined repeatly.
   + `let` defines the variable in the block scope, such as `for`, `if` `while` or `{}`. It cann't be used before defination and not be defined repreatly.
@@ -232,11 +243,11 @@
   a && b              // logical and
   a || b              // logical or
   ```
-])
+]
 
 = Data Types
 
-#concept-block(body: [
+#concept-block[
   #inline("Basics")
   ```js
   var age = 18;                           // number 
@@ -263,11 +274,11 @@
   student[age]++;             // incrementing
   name = student.fullName();  // call object function
   ```
-])
+]
 
 = Strings
 
-#concept-block(body: [
+#concept-block[
   ```js
   var abc = "abcdefghijklmnopqrstuvwxyz";
   var esc = 'I don\'t \n know';   // \n new line
@@ -286,11 +297,11 @@
   abc.split("");                  // splitting on characters
   128.toString(16);      // number to hex(16), octal (8) or binary (2)
   ```
-])
+]
 
 = Dates
 
-#concept-block(body: [
+#concept-block[
   #inline("Objects")
   ```js
   Wed Jun 11 2025 18:31:19 GMT+0800 (中国标准时间)
@@ -334,10 +345,10 @@
   setSeconds();       // seconds (0-59)
   setTime();          // milliseconds since 1970)
   ```
-])
+]
 
 = Arrays
-#concept-block(body: [
+#concept-block[
   ```js
   var dogs = ["Bulldog", "Beagle", "Labrador"]; 
   var dogs = new Array("Bulldog", "Beagle", "Labrador");  // declaration
@@ -369,7 +380,7 @@
   highest = x[0];      // first item in sorted array is the lowest (or highest) value
   x.sort(function(a, b){return 0.5 - Math.random()}); // random order sort
   ```
-])
+]
 
 = References
 + #link("https://htmlboxedsheet.com/js/")[JS Cheat Sheet: https://htmlboxedsheet.com/js/]

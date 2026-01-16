@@ -1,5 +1,5 @@
-#import "@preview/boxed-sheet:0.1.0": *
-// #import "../src/lib.typ": *
+//#import "@preview/boxed-sheet:0.1.0": *
+#import "../src/lib.typ": *
 
 #set text(font: (
   "Times New Roman",
@@ -9,6 +9,17 @@
 #let homepage = link("https://lzhms.github.io/")[Homepage]
 #let author = "Zhihao Li"
 #let title = "JavaScript Cheat Sheet"
+
+#let my-colors = (
+  rgb(190, 149, 196),
+  rgb("#f39f71"),
+  rgb(102, 155, 188),
+  rgb(229, 152, 155),
+  rgb("6a4c93"),
+  rgb("E0A500"),
+  rgb("#934c84"),
+  rgb("#934c5a"),
+)
 
 #show: boxedsheet-scaling.with(
   title: title,
@@ -31,7 +42,7 @@
 )
 
 = Basics
-#concept-block(body: [
+#concept-block[
   #inline("On page script")
   Embeding the `JavaScript` code in the `html` file just as follows. That ensures the browser can load the program script and run it. 
   ```js
@@ -81,10 +92,10 @@
   comment */
   // One line
   ```
-])
+]
 
 = Loops
-#concept-block(body: [
+#concept-block[
 
   #inline("For Loop")
   ```js
@@ -133,10 +144,10 @@
     document.write(i + ", ");       // skips 5
   }
   ```
-])
+]
 
 = Branch
-#concept-block(body: [
+#concept-block[
   #inline("If - Else")
   ```js
   if ((age >= 14) && (age < 19)) {        // logical condition
@@ -158,10 +169,10 @@
       text = "Whatever";
   }
   ```
-])
+]
 
 = Variables
-#concept-block(body: [
+#concept-block[
   #inline("Defination")
   + `var` defines the variable in the function scope and become global variable if it's defined in the outside of function. It can be used with the value of `undefined` before defination and be alse defined repeatly.
   + `let` defines the variable in the block scope, such as `for`, `if` `while` or `{}`. It cann't be used before defination and not be defined repreatly.
@@ -234,11 +245,11 @@
   a && b              // logical and
   a || b              // logical or
   ```
-])
+]
 
 = Data Types
 
-#concept-block(body: [
+#concept-block[
   #inline("Basics")
   ```js
   var age = 18;                           // number 
@@ -265,11 +276,11 @@
   student[age]++;             // incrementing
   name = student.fullName();  // call object function
   ```
-])
+]
 
 = Strings
 
-#concept-block(body: [
+#concept-block[
   ```js
   var abc = "abcdefghijklmnopqrstuvwxyz";
   var esc = 'I don\'t \n know';   // \n new line
@@ -288,11 +299,11 @@
   abc.split("");                  // splitting on characters
   128.toString(16);      // number to hex(16), octal (8) or binary (2)
   ```
-])
+]
 
 = Dates
 
-#concept-block(body: [
+#concept-block[
   #inline("Objects")
   ```js
   Wed Jun 11 2025 18:31:19 GMT+0800 (中国标准时间)
@@ -336,10 +347,10 @@
   setSeconds();       // seconds (0-59)
   setTime();          // milliseconds since 1970)
   ```
-])
+]
 
 = Arrays
-#concept-block(body: [
+#concept-block[
   ```js
   var dogs = ["Bulldog", "Beagle", "Labrador"]; 
   var dogs = new Array("Bulldog", "Beagle", "Labrador");  // declaration
@@ -371,7 +382,7 @@
   highest = x[0];      // first item in sorted array is the lowest (or highest) value
   x.sort(function(a, b){return 0.5 - Math.random()}); // random order sort
   ```
-])
+]
 
 = References
 + #link("https://htmlboxedsheet.com/js/")[JS Cheat Sheet: https://htmlboxedsheet.com/js/]
