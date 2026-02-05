@@ -74,8 +74,7 @@
     color-box-state.update(color-box)
 
     set page(
-      width: page-w,
-      height: page-h,
+      paper: "a4",
       flipped: true,
       margin: (x: x-margin, y: y-margin),
       header: [
@@ -103,7 +102,7 @@
         ]
       ]
     )
-    
+
     set text(size: font-size)
 
     set heading(numbering: "1.1") if title-number
@@ -210,7 +209,7 @@
         ]
       ]
     )
-    
+
     set text(size: font-size)
 
     set heading(numbering: "1.1") if title-number
