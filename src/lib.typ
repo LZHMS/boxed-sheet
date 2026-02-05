@@ -52,7 +52,9 @@
 #let boxedsheet(
   title: [],
   homepage: "",
-  authors: (),
+  authors: "",
+  write-header: true,
+  write-header-homepage: true,
   write-title: false,
   title-align: center,
   title-number: true,
@@ -66,31 +68,39 @@
   column-gutter: 4pt,
   numbered-units: false,
   color-box: default-color-box,
-  body) = {
+  body,
+) = {
 
     color-box-state.update(color-box)
 
     set page(
-      paper: "a4",
+      width: page-w,
+      height: page-h,
       flipped: true,
       margin: (x: x-margin, y: y-margin),
       header: [
-        #grid(
-          columns: (1fr, 1fr, 1fr),
-          align: (left, center, right),
-          gutter: 0pt,
-          [
-            #text(datetime.today().display("[month repr:long] [day], [year]"), weight: "bold")
-          ],
-          [
-            #text(title, weight: "bold")
-          ],
-          [
-            #text(authors + " @ " + homepage, weight: "bold")
-          ]
-        )
-        #v(-3pt)
-        #line(length: 100%, stroke: black)
+        #if write-header [
+	        #grid(
+	          columns: (1fr, 1fr, 1fr),
+	          align: (left, center, right),
+	          gutter: 0pt,
+	          [
+	            #text(datetime.today().display("[month repr:long] [day], [year]"), weight: "bold")
+	          ],
+	          [
+	            #text(title, weight: "bold")
+	          ],
+	          [
+			  #if write-header-homepage [
+			    #text(authors + " @ " + homepage, weight: "bold")
+			  ] else [
+			    #text(authors, weight: "bold")
+			  ]
+	          ]
+	        )
+	        #v(-3pt)
+	        #line(length: 100%, stroke: black)
+        ]
       ]
     )
     
@@ -147,7 +157,9 @@
 #let boxedsheet-scaling(
   title: [],
   homepage: "",
-  authors: (),
+  authors: "",
+  write-header: true,
+  write-header-homepage: true,
   write-title: false,
   title-align: center,
   page-w: auto,
@@ -163,7 +175,8 @@
   column-gutter: 4pt,
   numbered-units: false,
   color-box: default-color-box,
-  body) = {
+  body,
+) = {
 
     color-box-state.update(color-box)
 
@@ -173,22 +186,28 @@
       flipped: true,
       margin: (x: x-margin, y: y-margin),
       header: [
-        #grid(
-          columns: (1fr, 1fr, 1fr),
-          align: (left, center, right),
-          gutter: 0pt,
-          [
-            #text(datetime.today().display("[month repr:long] [day], [year]"), weight: "bold")
-          ],
-          [
-            #text(title, weight: "bold")
-          ],
-          [
-            #text(authors + " @ " + homepage, weight: "bold")
-          ]
-        )
-        #v(-3pt)
-        #line(length: 100%, stroke: black)
+        #if write-header [
+	        #grid(
+	          columns: (1fr, 1fr, 1fr),
+	          align: (left, center, right),
+	          gutter: 0pt,
+	          [
+	            #text(datetime.today().display("[month repr:long] [day], [year]"), weight: "bold")
+	          ],
+	          [
+	            #text(title, weight: "bold")
+	          ],
+	          [
+			  #if write-header-homepage [
+			    #text(authors + " @ " + homepage, weight: "bold")
+			  ] else [
+			    #text(authors, weight: "bold")
+			  ]
+	          ]
+	        )
+	        #v(-3pt)
+	        #line(length: 100%, stroke: black)
+        ]
       ]
     )
     
