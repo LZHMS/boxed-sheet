@@ -61,7 +61,7 @@
   font-size: 5.5pt,
   line-skip: 5.5pt,
   x-margin: 30pt,
-  y-margin: 0pt,
+  y-margin: 20pt,
   num-columns: 5,
   column-gutter: 4pt,
   numbered-units: false,
@@ -93,7 +93,7 @@
         #line(length: 100%, stroke: black)
       ]
     )
-    
+
     set text(size: font-size)
 
     set heading(numbering: "1.1") if title-number
@@ -158,7 +158,7 @@
   font-size: 5.5pt,
   line-skip: 5.5pt,
   x-margin: 30pt,
-  y-margin: 0pt,
+  y-margin: 20pt,
   num-columns: 5,
   column-gutter: 4pt,
   numbered-units: false,
@@ -191,7 +191,7 @@
         #line(length: 100%, stroke: black)
       ]
     )
-    
+
     set text(size: font-size)
 
     set heading(numbering: "1.1") if title-number
